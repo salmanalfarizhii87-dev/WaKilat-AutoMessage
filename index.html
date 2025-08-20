@@ -8,39 +8,26 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 	<div class="app-container">
 		<header class="app-header">
-			<div class="header-icon">
-				<i class="fas fa-comments"></i>
-			</div>
-			<h1>Whatsapp Message Auto Template</h1>
-			<p class="subtitle">Generate template pesan rangkuman rapat otomatis dengan AI</p>
+			<h1>Auto Template Rangkuman Rapat</h1>
+			<p class="subtitle">Paguyuban Kelas 8i SMPN 04 Malang</p>
 		</header>
 
 		<main>
 			<section class="card">
-				<div class="card-header">
-					<i class="fas fa-calendar-alt"></i>
-					<h2>Form Rapat</h2>
-				</div>
+				<h2>Form Rapat</h2>
 				<form id="meetingForm" autocomplete="off">
 					<div class="form-grid">
 						<div class="form-group">
-							<label for="dateDisplay">
-								<i class="fas fa-calendar"></i>
-								Hari/Tanggal
-							</label>
+							<label for="dateDisplay">Hari/Tanggal</label>
 							<input id="dateDisplay" type="text" readonly>
 						</div>
 
 						<div class="form-group">
-							<label for="timeSelect">
-								<i class="fas fa-clock"></i>
-								Waktu
-							</label>
+							<label for="timeSelect">Waktu</label>
 							<select id="timeSelect" required>
 								<option value="" selected disabled>Pilih waktu rapat</option>
 								<option>07.00 - 09.00</option>
@@ -53,61 +40,39 @@
 					</div>
 
 					<div class="points-header">
-						<h3>
-							<i class="fas fa-list-ul"></i>
-							Pokok Hasil Rapat
-						</h3>
+						<h3>Pokok Hasil Rapat</h3>
 						<div class="points-actions">
-							<button type="button" id="addPointBtn" class="btn secondary">
-								<i class="fas fa-plus"></i>
-								Tambah Poin
-							</button>
+							<button type="button" id="addPointBtn" class="btn secondary">+ Tambah Poin</button>
 						</div>
 					</div>
 
 					<div id="pointsContainer" class="points-container"></div>
 
 					<div class="actions">
-						<button type="button" id="generateBtn" class="btn primary">
-							<i class="fas fa-magic"></i>
-							Buat Pesan
-						</button>
-						<button type="reset" id="resetBtn" class="btn">
-							<i class="fas fa-redo"></i>
-							Reset
-						</button>
+						<button type="button" id="generateBtn" class="btn primary">Buat Pesan</button>
+						<button type="reset" id="resetBtn" class="btn">Reset</button>
 					</div>
 				</form>
 			</section>
 
 			<section class="card">
-				<div class="card-header">
-					<i class="fas fa-file-alt"></i>
-					<h2>Hasil Pesan</h2>
-				</div>
+				<h2>Hasil Pesan</h2>
 				<div class="result-wrapper">
 					<textarea id="resultText" rows="12" readonly placeholder="Hasil dari Gemini akan muncul di sini..."></textarea>
 				</div>
 				<div class="actions">
-					<button type="button" id="shareBtn" class="btn success" disabled>
-						<i class="fab fa-whatsapp"></i>
-						Share via WhatsApp
-					</button>
+					<button type="button" id="shareBtn" class="btn success" disabled>Share via WhatsApp</button>
 				</div>
 			</section>
 		</main>
 
 		<footer class="app-footer">
-			<div class="footer-content">
-				<div class="footer-icon">
-					<i class="fas fa-bolt"></i>
-				</div>
-				<small>Powered by KilatApp</small>
-			</div>
+			<small>Powered by Gemini API</small>
 		</footer>
 	</div>
 
 	<script src="app.js"></script>
 </body>
 </html>
+
 
