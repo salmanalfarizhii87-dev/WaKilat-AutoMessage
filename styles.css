@@ -581,34 +581,316 @@ body {
     
     .app-header h1 {
         font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .header-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+    
+    .header-icon i {
+        font-size: 1.5rem;
     }
     
     .card {
-        padding: 1.5rem;
+        padding: 1.5rem 1rem;
         margin-bottom: 1.5rem;
+        border-radius: var(--radius-lg);
+    }
+    
+    .card-header {
+        margin-bottom: 1rem;
+    }
+    
+    .card-header i {
+        font-size: 1.25rem;
+    }
+    
+    .card h2 {
+        font-size: 1.25rem;
     }
     
     .form-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+        font-size: 0.8rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 0.75rem 0.875rem;
+        font-size: 0.9rem;
+    }
+    
+    .points-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .points-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .points-actions {
+        width: 100%;
+    }
+    
+    .points-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .point-row {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        background: var(--bg-tertiary);
+        border-radius: var(--radius-lg);
+    }
+    
+    .point-row:hover {
+        transform: none;
+        background: var(--bg-tertiary);
+        padding: 0.75rem;
+        margin: 0 0 1rem 0;
+    }
+    
+    .point-row textarea {
+        min-height: 50px;
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    .point-row .btn.icon {
+        align-self: flex-end;
+        width: 35px;
+        height: 35px;
+        font-size: 0.875rem;
     }
     
     .actions {
         flex-direction: column;
         align-items: stretch;
+        gap: 0.75rem;
     }
     
     .btn {
         width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 0.9rem;
+        min-height: 48px;
+    }
+    
+    .btn.icon {
+        width: 35px;
+        height: 35px;
+        min-width: auto;
+    }
+    
+    .result-wrapper textarea {
+        padding: 1rem;
+        font-size: 0.85rem;
+        min-height: 120px;
+    }
+    
+    .notification {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+        transform: translateY(-100px);
+        padding: 0.875rem 1rem;
+    }
+    
+    .notification.show {
+        transform: translateY(0);
+    }
+    
+    .notification span {
+        font-size: 0.875rem;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .app-container {
+        padding: 0.75rem 0.25rem;
+    }
+    
+    .app-header h1 {
+        font-size: 1.75rem;
+        padding: 0 0.5rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+        padding: 0 1.5rem;
+    }
+    
+    .header-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .header-icon i {
+        font-size: 1.25rem;
+    }
+    
+    .card {
+        padding: 1rem 0.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .card h2 {
+        font-size: 1.1rem;
+    }
+    
+    .form-group label {
+        font-size: 0.75rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 0.625rem 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    .points-header h3 {
+        font-size: 1rem;
     }
     
     .point-row {
-        flex-direction: column;
+        padding: 0.5rem;
         gap: 0.5rem;
     }
     
-    .point-row .btn.icon {
-        align-self: flex-end;
+    .point-row textarea {
+        padding: 0.625rem;
+        font-size: 0.8rem;
+        min-height: 45px;
+    }
+    
+    .btn {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.85rem;
+        min-height: 44px;
+    }
+    
+    .result-wrapper textarea {
+        padding: 0.875rem;
+        font-size: 0.8rem;
+        min-height: 100px;
+    }
+    
+    .footer-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .footer-icon i {
+        font-size: 1rem;
+    }
+}
+
+/* Landscape Orientation Fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+    .app-header {
+        margin-bottom: 2rem;
+    }
+    
+    .app-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .header-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0.75rem;
+    }
+    
+    .card {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    
+    .point-row {
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+    
+    .actions {
+        flex-direction: row;
+        gap: 0.75rem;
+    }
+    
+    .btn {
+        width: auto;
+        flex: 1;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 48px;
+        touch-action: manipulation;
+    }
+    
+    .btn:hover {
+        transform: none;
+        box-shadow: var(--shadow-md);
+    }
+    
+    .card:hover {
+        transform: none;
+        box-shadow: var(--shadow-xl);
+    }
+    
+    .point-row:hover {
+        transform: none;
+        background: var(--bg-tertiary);
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        transform: none;
+    }
+}
+
+/* High DPI Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .btn {
+        border-width: 1px;
+    }
+    
+    .card {
+        border-width: 1px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        border-width: 1px;
     }
 }
 
@@ -867,5 +1149,131 @@ textarea:focus-visible {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+    }
+}
+
+/* Mobile-First Improvements */
+@media (max-width: 768px) {
+    /* Better spacing for mobile */
+    .app-container {
+        padding: 1rem 0.5rem;
+        min-height: auto;
+    }
+    
+    /* Improved header layout */
+    .app-header {
+        margin-bottom: 2rem;
+    }
+    
+    /* Better card spacing */
+    .card {
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow-lg);
+    }
+    
+    /* Improved form layout */
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    /* Better button spacing */
+    .actions {
+        margin-top: 1.5rem;
+    }
+    
+    /* Improved points container */
+    .points-container {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Better textarea sizing */
+    .result-wrapper {
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Footer adjustments */
+    .app-footer {
+        margin-top: 2rem;
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Android-specific fixes */
+@media screen and (max-width: 768px) {
+    /* Prevent horizontal scrolling */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* Better touch targets */
+    .btn {
+        min-height: 48px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Improved input handling */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        -webkit-appearance: none;
+        border-radius: var(--radius-md);
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* Better mobile navigation */
+    .points-header {
+        position: relative;
+    }
+    
+    /* Improved mobile animations */
+    .card {
+        animation: slideInUp 0.4s ease-out;
+    }
+    
+    .point-row {
+        animation: slideInRight 0.3s ease-out;
+    }
+}
+
+/* Ultra-wide mobile support */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .app-container {
+        max-width: 90%;
+        padding: 2rem 1rem;
+    }
+    
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
+    .point-row {
+        flex-direction: row;
+        gap: 1rem;
+    }
+}
+
+/* Print styles for better output */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+    }
+    
+    .btn {
+        display: none;
+    }
+    
+    .header-icon,
+    .footer-icon {
+        display: none;
     }
 }
