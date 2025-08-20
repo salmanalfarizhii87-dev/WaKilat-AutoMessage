@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Auto Template Rangkuman Rapat Paguyuban</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="app-container">
+		<header class="app-header">
+			<h1>Auto Template Rangkuman Rapat</h1>
+			<p class="subtitle">Paguyuban Kelas 8i SMPN 04 Malang</p>
+		</header>
+
+		<main>
+			<section class="card">
+				<h2>Form Rapat</h2>
+				<form id="meetingForm" autocomplete="off">
+					<div class="form-grid">
+						<div class="form-group">
+							<label for="dateDisplay">Hari/Tanggal</label>
+							<input id="dateDisplay" type="text" readonly>
+						</div>
+
+						<div class="form-group">
+							<label for="timeSelect">Waktu</label>
+							<select id="timeSelect" required>
+								<option value="" selected disabled>Pilih waktu rapat</option>
+								<option>07.00 - 09.00</option>
+								<option>09.00 - 11.00</option>
+								<option>11.00 - 13.00</option>
+								<option>13.00 - 15.00</option>
+								<option>15.00 - 17.00</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="points-header">
+						<h3>Pokok Hasil Rapat</h3>
+						<div class="points-actions">
+							<button type="button" id="addPointBtn" class="btn secondary">+ Tambah Poin</button>
+						</div>
+					</div>
+
+					<div id="pointsContainer" class="points-container"></div>
+
+					<div class="actions">
+						<button type="button" id="generateBtn" class="btn primary">Buat Pesan</button>
+						<button type="reset" id="resetBtn" class="btn">Reset</button>
+					</div>
+				</form>
+			</section>
+
+			<section class="card">
+				<h2>Hasil Pesan</h2>
+				<div class="result-wrapper">
+					<textarea id="resultText" rows="12" readonly placeholder="Hasil dari Gemini akan muncul di sini..."></textarea>
+				</div>
+				<div class="actions">
+					<button type="button" id="shareBtn" class="btn success" disabled>Share via WhatsApp</button>
+				</div>
+			</section>
+		</main>
+
+		<footer class="app-footer">
+			<small>Powered by Gemini API</small>
+		</footer>
+	</div>
+
+	<script src="app.js"></script>
+</body>
+</html>
