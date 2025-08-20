@@ -63,16 +63,18 @@
 
 	function buildPrompt({ tanggal, waktu, points }) {
 		const exampleFormat = [
-			'\uD83D\uDCCC Notulen/Rangkuman Rapat Paguyuban Kelas 8i SMPN 04 Malang',
-			`Hari/Tanggal : ${tanggal}`,
-			`Waktu : ${waktu}`,
+			'\uD83D\uDCCC *Notulen/Rangkuman Rapat Paguyuban Kelas 8i SMPN 04 Malang*',
 			'',
-			'Pokok Hasil Rapat:',
+			`*Hari/Tanggal* : ${tanggal}`,
+			`*Waktu* : ${waktu}`,
+			'',
+			'*Pokok Hasil Rapat*:',
 			points.map(function (p, idx) { return `${idx + 1}. ${p}`; }).join('\n'),
 			'',
 			'\uD83D\uDE4F Terima kasih atas kehadiran dan partisipasi Bapak/Ibu. Bagi yang berhalangan hadir, semoga rangkuman ini bisa menjadi informasi bersama.',
 			'',
 			'Salam hangat,',
+			'*Mama Ira*',
 			'Sekretaris Paguyuban 8i'
 		].join('\n');
 
