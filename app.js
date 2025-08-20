@@ -26,7 +26,11 @@
 
 	function createPointRow(value = '') {
 		const row = document.createElement('div');
-		row.className = 'point-row';
+		row.className = 'point-row entering';
+		row.addEventListener('animationend', function handleEnter() {
+			row.removeEventListener('animationend', handleEnter);
+			row.classList.remove('entering');
+		});
 
 		const textarea = document.createElement('textarea');
 		textarea.placeholder = 'Tulis poin hasil rapat...';
@@ -38,8 +42,14 @@
 		removeBtn.title = 'Hapus poin';
 		removeBtn.textContent = '✕';
 		removeBtn.addEventListener('click', function () {
-			pointsContainer.removeChild(row);
-			updateAddRemoveState();
+			row.classList.add('removing');
+			row.addEventListener('animationend', function handle() {
+				row.removeEventListener('animationend', handle);
+				if (row.parentElement) {
+					pointsContainer.removeChild(row);
+					updateAddRemoveState();
+				}
+			});
 		});
 
 		row.appendChild(textarea);
@@ -152,17 +162,25 @@
 		const prompt = buildPrompt({ tanggal: tanggal, waktu: waktu, points: points });
 
 		resultText.value = 'Menyusun pesan dengan Gemini...';
+		resultText.classList.add('loading');
+		generateBtn.classList.add('loading');
 		generateBtn.disabled = true;
 		try {
 			const generated = await callGemini(prompt);
 			resultText.value = generated;
 			shareBtn.disabled = generated.trim().length === 0;
+			if (!shareBtn.disabled) {
+				shareBtn.classList.add('enabled-bump');
+				setTimeout(function () { shareBtn.classList.remove('enabled-bump'); }, 300);
+			}
 		} catch (err) {
 			console.error(err);
 			resultText.value = 'Terjadi kesalahan: ' + (err && err.message ? err.message : String(err));
 			shareBtn.disabled = true;
 		} finally {
 			generateBtn.disabled = false;
+			resultText.classList.remove('loading');
+			generateBtn.classList.remove('loading');
 		}
 	});
 

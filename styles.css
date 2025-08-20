@@ -39,6 +39,7 @@ body {
 	padding: 16px;
 	margin-bottom: 16px;
 	backdrop-filter: blur(4px);
+	animation: fadeInUp .5s ease-out both;
 }
 
 .card h2 { margin: 0 0 12px; font-size: 1.1rem; }
@@ -75,16 +76,91 @@ input[readonly] { opacity: .9; }
 	border-radius: 10px;
 	cursor: pointer;
 	font-weight: 600;
+	transition: transform .15s ease, filter .2s ease, background-color .2s ease, box-shadow .2s ease;
 }
 .btn:hover { filter: brightness(1.05); }
+.btn:active { transform: scale(.98); }
 .btn.primary { background: var(--primary); border-color: var(--primary-600); }
 .btn.secondary { background: transparent; }
 .btn.success { background: var(--success); border-color: #12893e; }
 .btn.danger { background: var(--danger); border-color: #dc2626; }
 .btn.icon { padding: 10px; width: 42px; }
 
+/* Loading spinner for primary button */
+.btn.primary.loading { position: relative; padding-right: 36px; }
+.btn.primary.loading::after {
+	content: "";
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	width: 14px;
+	height: 14px;
+	border: 2px solid rgba(255,255,255,.5);
+	border-top-color: #fff;
+	border-radius: 50%;
+	transform: translateY(-50%);
+	animation: spin .8s linear infinite;
+}
+
 .actions { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
 
 .result-wrapper textarea { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px; }
 
+/* Shimmer loading state for result */
+#resultText.loading {
+	background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 37%, rgba(255,255,255,0.04) 63%) var(--card);
+	background-size: 400% 100%;
+	animation: shimmer 1.2s ease-in-out infinite;
+}
+
 .app-footer { text-align: center; color: var(--muted); margin-top: 12px; }
+
+/* Page section entrance */
+.app-header { text-align: center; margin-bottom: 18px; animation: fadeInUp .5s ease-out both; }
+.app-footer { animation: fadeInUp .5s ease-out both; }
+.card:first-of-type { animation-delay: .06s; }
+.card:nth-of-type(2) { animation-delay: .12s; }
+.app-footer { animation-delay: .18s; }
+
+/* Point row enter/remove animations */
+.point-row.entering { animation: fadeInUp .25s ease-out; }
+.point-row.removing { animation: fadeOutDown .2s ease-in forwards; }
+
+/* Enabled bump for share button */
+.enabled-bump { animation: pop .25s ease-out; }
+
+/* Keyframes */
+@keyframes fadeInUp {
+	from { opacity: 0; transform: translateY(8px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOutDown {
+	from { opacity: 1; transform: translateY(0); }
+	to { opacity: 0; transform: translateY(6px); }
+}
+
+@keyframes spin {
+	to { transform: translateY(-50%) rotate(360deg); }
+}
+
+@keyframes shimmer {
+	0% { background-position: 200% 0; }
+	100% { background-position: -200% 0; }
+}
+
+@keyframes pop {
+	0% { transform: scale(1); }
+	50% { transform: scale(1.05); }
+	100% { transform: scale(1); }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
